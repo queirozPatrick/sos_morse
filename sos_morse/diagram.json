@@ -1,0 +1,30 @@
+{
+    "version": 1,
+    "author": "Uri Shaked",
+    "editor": "wokwi",
+    "parts": [
+      {
+        "type": "wokwi-pi-pico",
+        "id": "pico",
+        "top": 16.05,
+        "left": 61.2,
+        "attrs": { "env": "arduino-community" }
+      },
+      { "type": "wokwi-led", "id": "led1", "top": 34.8, "left": 13.4, "attrs": { "color": "red" } },
+      {
+        "type": "wokwi-resistor",
+        "id": "r1",
+        "top": 129.6,
+        "left": -0.55,
+        "rotate": 90,
+        "attrs": { "value": "1000" }
+      }
+    ],
+    "connections": [
+      [ "$serialMonitor:RX", "pico:GP0", "", [] ],
+      [ "pico:GP12", "led1:A", "green", [ "h0" ] ],
+      [ "pico:GND.4", "r1:2", "black", [ "h0" ] ],
+      [ "r1:1", "led1:C", "black", [ "h0" ] ]
+    ],
+    "dependencies": {}
+  }
